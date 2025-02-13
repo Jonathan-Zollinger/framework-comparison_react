@@ -13,6 +13,7 @@ version = "0.0.1"
 group = "jonathan_zollinger"
 val kotlinVersion= project.properties["kotlinVersion"]
 val dataFakerVersion = project.properties["dataFakerVersion"]
+val projectReactorVersion = project.properties["projectReactorVersion"]
 
 repositories {
     mavenCentral()
@@ -26,7 +27,7 @@ dependencies {
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("net.datafaker:datafaker:$dataFakerVersion")
     implementation(kotlin("stdlib-jdk8"))
-
+    implementation("io.projectreactor:reactor-core:${projectReactorVersion}")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
