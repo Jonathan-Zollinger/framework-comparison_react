@@ -12,6 +12,8 @@ plugins {
 version = "0.0.1"
 group = "jonathan_zollinger"
 val kotlinVersion= project.properties["kotlinVersion"]
+val dataFakerVersion = project.properties["dataFakerVersion"]
+
 repositories {
     mavenCentral()
 }
@@ -22,8 +24,9 @@ dependencies {
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("net.datafaker:datafaker:$dataFakerVersion")
     implementation(kotlin("stdlib-jdk8"))
+
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
