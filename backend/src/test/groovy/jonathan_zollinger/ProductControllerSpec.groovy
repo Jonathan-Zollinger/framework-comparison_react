@@ -1,5 +1,6 @@
 package jonathan_zollinger
 
+import io.micronaut.context.annotation.Property
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
@@ -13,6 +14,10 @@ import net.datafaker.Faker
 import spock.lang.Specification
 
 @MicronautTest
+@Property(name = "datasources.default.driver-class-name",
+        value = "org.testcontainers.jdbc.ContainerDatabaseDriver")
+@Property(name = "datasources.default.url",
+        value = "jdbc:tc:postgresql:15.2-alpine:///db?TC_INITSCRIPT=sql/northwind.sql")
 class ProductControllerSpec extends Specification {
 
     @Inject
