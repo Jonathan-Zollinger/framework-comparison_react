@@ -8,6 +8,13 @@ plugins {
     id("io.micronaut.test-resources") version "4.4.4"
     id("io.micronaut.aot") version "4.4.4"
 }
+sourceSets {
+    test {
+        resources {
+            srcDirs("src/test/resources", "../shared-resources")  // Add shared resources
+        }
+    }
+}
 
 version = "0.0.1"
 group = "jonathan_zollinger"
@@ -32,7 +39,11 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.yaml:snakeyaml")
+    testRuntimeOnly("org.postgresql:postgresql")
     testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation("io.micronaut.test:micronaut-test-rest-assured")
+    testImplementation("org.testcontainers:spock")
+    testImplementation("org.testcontainers:testcontainers")
 }
 
 
