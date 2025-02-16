@@ -17,24 +17,9 @@ The ports and authentication used in this are not reflected in the testcontainer
 ### Connect to the database
 
 
-<ul><li>
-
-
-```shell
-psql -U postgres northwind -p 55432
-```
-
-</li>
-
-<li>
-
 | Host      | Port    | Database  | Username   | Password   | Authentication  |
 |-----------|---------|-----------|------------|------------|-----------------|
 | localhost | `55432` | northwind | `postgres` | `postgres` | Database Native |
-
-</li>
-
-</ul>
 
 <br>
 
