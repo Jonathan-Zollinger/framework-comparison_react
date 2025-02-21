@@ -1,9 +1,17 @@
 micronaut:
   application:
     name: frameworkComparisonReact
+#jpa:
+#  default:
+#    entity-scan:
+#      base-packages: jonathan_zollinger
 datasources:
   default:
-    driver-class-name: org.postgresql.Driver
     db-type: postgres
-    schema-generate: CREATE_DROP
     dialect: POSTGRES
+    driver-class-name: org.postgresql.Driver
+#test-resources:
+#  containers:
+#    postgres:
+#      image: postgres:15.2-alpine
+
