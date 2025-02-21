@@ -19,12 +19,14 @@ sourceSets {
 version = "0.0.1"
 group = "jonathan_zollinger"
 val kotlinVersion= project.properties["kotlinVersion"]
-val dataFakerVersion = project.properties["dataFakerVersion"]
 val projectReactorVersion = project.properties["projectReactorVersion"]
+val jakartaVersion = project.properties["jakartaVersion"]
+val groovySqlVersion = project.properties["groovySqlVersion"]
 
 repositories {
     mavenCentral()
 }
+
 
 dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
@@ -32,18 +34,21 @@ dependencies {
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("net.datafaker:datafaker:$dataFakerVersion")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation(kotlin("stdlib-jdk8"))
     implementation("io.projectreactor:reactor-core:${projectReactorVersion}")
+    implementation("jakarta.validation:jakarta.validation-api:$jakartaVersion")
     compileOnly("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.yaml:snakeyaml")
-    testRuntimeOnly("org.postgresql:postgresql")
+//    testRuntimeOnly("org.postgresql:postgresql")
     testImplementation("io.micronaut:micronaut-http-client")
     testImplementation("io.micronaut.test:micronaut-test-rest-assured")
     testImplementation("org.testcontainers:spock")
     testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.apache.groovy:groovy-sql:${groovySqlVersion}")
 }
 
 

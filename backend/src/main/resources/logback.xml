@@ -7,7 +7,7 @@
             <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n</pattern>
         </encoder>
     </appender>
-
+<!--    <logger name="io.micronaut.http.client" level="DEBUG"/> uncomment this to turn on http client debugging-->
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
