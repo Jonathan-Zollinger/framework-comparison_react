@@ -20,10 +20,10 @@ sourceSets {
 
 version = "0.0.1"
 group = "jonathan_zollinger"
-val kotlinVersion= project.properties["kotlinVersion"]
-val projectReactorVersion = project.properties["projectReactorVersion"]
-val jakartaVersion = project.properties["jakartaVersion"]
-val groovySqlVersion = project.properties["groovySqlVersion"]
+val kotlinVersion= project.rootProject.properties["kotlinVersion"]
+val projectReactorVersion = project.rootProject.properties["projectReactorVersion"]
+val jakartaVersion = project.rootProject.properties["jakartaVersion"]
+val groovySqlVersion = project.rootProject.properties["groovySqlVersion"]
 
 repositories {
     mavenCentral()
@@ -89,8 +89,6 @@ micronaut {
         replaceLogbackXml = true
     }
 }
-
-
 
 kotlin {
     jvmToolchain(17)
