@@ -1,3 +1,5 @@
+import org.gradle.internal.os.OperatingSystem
+
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.9.25"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.9.25"
@@ -58,6 +60,12 @@ application {
 java {
 }
 
+tasks.test {
+    if (OperatingSystem.current().isLinux) {
+        environment("DOCKER_HOST", "unix:///run/user/1000/podman/podman.sock") //change for your user id
+        environment("TESTCONTAINERS_RYUK_DISABLED", "true")
+    }
+}
 
 graalvmNative.toolchainDetection = false
 
