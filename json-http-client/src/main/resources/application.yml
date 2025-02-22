@@ -1,17 +1,9 @@
 micronaut:
   application:
     name: frameworkComparisonReact
-#jpa:
-#  default:
-#    entity-scan:
-#      base-packages: jonathan_zollinger
 datasources:
   default:
     db-type: postgres
     dialect: POSTGRES
     driver-class-name: org.postgresql.Driver
-#test-resources:
-#  containers:
-#    postgres:
-#      image: postgres:15.2-alpine
 
