@@ -54,7 +54,7 @@ dependencies {
 
 
 application {
-    mainClass = "jonathan_zollinger.Application.kt"
+    mainClass = "jonathan_zollinger.ApplicationKt"
 }
 java {
 }
