@@ -1,9 +1,10 @@
 micronaut:
   application:
     name: frameworkComparisonReact
+  server:
+    port: -1
 datasources:
   default:
     db-type: postgres
     dialect: POSTGRES
     driver-class-name: org.postgresql.Driver
-
