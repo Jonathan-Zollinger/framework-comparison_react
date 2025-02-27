@@ -1,15 +1,24 @@
-name: Test
+name: Test 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest # docker (and thus testcontainers) only available on linux
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/prepare
-      - run: pnpm test
+      - name: "  Checkout repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: "󰬷 Set up JDK 17"
+        uses: graalvm/setup-graalvm@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          java-version: 17
+          distribution: 'graalvm'
+          native-image-job-reports: 'true'
+      - name: "general gradle test"
+        run: "./gradlew test"
